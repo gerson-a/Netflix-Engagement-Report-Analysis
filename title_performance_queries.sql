@@ -4,6 +4,7 @@
   SELECT DISTINCT(h.Title), 
     h.imdb_title as imdb_title, 
     t.kind, 
+    --identify the type of each title using 'kind' from the IMDb data scrape
     CASE
       WHEN t.kind IN ('tv series', 'tv mini series') THEN 'TV'
       ELSE 'Film'
@@ -24,6 +25,7 @@
   WITH types AS (
     SELECT DISTINCT(h.Title), 
       t.kind, 
+      --identify the type of each title using 'kind' from the IMDb data scrape
       CASE
         WHEN t.kind IN ('tv series', 'tv mini series') THEN 'TV'
         ELSE 'Film'
@@ -77,10 +79,12 @@
       WHEN type = 'TV' THEN  DENSE_RANK() OVER (ORDER BY views DESC) 
       ELSE NULL
     END AS tv_rank,
+    --rank each film according to total views
     CASE
       WHEN type = 'Film' THEN  DENSE_RANK() OVER (ORDER BY views DESC) 
       ELSE NULL
     END AS film_rank,
+    --rank all titles according to total views
     DENSE_RANK() OVER (ORDER BY views DESC) AS overall_rank
     FROM all_views
    ORDER BY views DESC
