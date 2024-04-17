@@ -1,4 +1,4 @@
-# Netflix-Engagement-Report-Analysis
+# Netflix Engagement Report Analysis
 In-depth analysis into the Top 500 titles by hours viewed on Netflix from January-June 2023. Initial dataset provided by Netflix in the first installment of "What We Watched: A Netflix Engagement Report".
 
 <img width="1829" alt="Screen Shot 2024-04-09 at 3 28 41 PM" src="https://github.com/gerson-a/Netflix-Engagement-Report-Analysis/assets/142946842/916c4db9-5730-42a6-af7d-b5ef9a1ee47f">
