@@ -88,3 +88,32 @@
     DENSE_RANK() OVER (ORDER BY views DESC) AS overall_rank
     FROM all_views
    ORDER BY views DESC
+
+#Identify top genre for each title
+#Exclude 'Drama' and include 'Dramedy' if top 2 genres are 'Drama' & 'Comedy'
+
+	WITH numbered_genres AS (
+	    SELECT Title, 
+	    	index,
+	       CASE 
+	            -- Combine "Drama" and "Comedy" into "Dramedy"
+	            WHEN 'Drama' IN (SELECT TRIM(individual_genre) FROM UNNEST(SPLIT(genres, ',')) AS individual_genre)
+	                 AND 'Comedy' IN (SELECT TRIM(individual_genre) FROM UNNEST(SPLIT(genres, ',')) AS individual_genre) THEN 'Dramedy'
+	            -- Remove "Drama" if it's accompanied by another genre that isn't "Comedy"
+	            WHEN 'Drama' IN (SELECT TRIM(individual_genre) FROM UNNEST(SPLIT(genres, ',')) AS individual_genre)
+	                 AND NOT 'Comedy' IN (SELECT TRIM(individual_genre) FROM UNNEST(SPLIT(genres, ',')) AS individual_genre) THEN REPLACE(genres, 'Drama,', '')
+	            ELSE genres
+	       END AS modified_genres
+	    FROM netflix-what-we-watched.top_500.imdb_data_full
+	)
+	
+	SELECT index, 
+		Title, 
+	   	TRIM(individual_genre) AS genre,
+	   	ROW_NUMBER() OVER (PARTITION BY Title ORDER BY index) AS genre_row_number
+	  FROM numbered_genres,
+	  	UNNEST(SPLIT(modified_genres, ',')) AS individual_genre
+	QUALIFY ROW_NUMBER() OVER (PARTITION BY Title ORDER BY index) <= 1
+	ORDER BY 1 ASC, 4 ASC
+
+
