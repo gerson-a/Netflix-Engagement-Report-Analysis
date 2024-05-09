@@ -3,7 +3,7 @@ In-depth analysis into the Top 500 titles by hours viewed on Netflix from Januar
 
 The full Tableau workbook containing this dashboard and the PowerPoint presentation can be found in the repository.
 
-<img width="1829" alt="Screen Shot 2024-04-09 at 3 28 41 PM" src="https://github.com/gerson-a/Netflix-Engagement-Report-Analysis/assets/142946842/916c4db9-5730-42a6-af7d-b5ef9a1ee47f">
+<img width="1947" alt="Dashboard Screenshot" src="https://github.com/gerson-a/Netflix-Engagement-Report-Analysis/assets/142946842/5b911f7a-f839-4e79-8c8a-b92e93ddba8a">
 
 ![Slide9](https://github.com/gerson-a/Netflix-Engagement-Report-Analysis/assets/142946842/ed7051c0-7829-4206-b106-370b77159f18)
 
