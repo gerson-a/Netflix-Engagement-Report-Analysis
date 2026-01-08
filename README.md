@@ -2,6 +2,7 @@
 In-depth analysis into the Top 500 titles by hours viewed on Netflix from January-June 2023. Initial dataset provided by Netflix in the first installment of "What We Watched: A Netflix Engagement Report".
 
 To explore the complete Tableau dashboard online, click the following link: https://public.tableau.com/app/profile/andrew.gerson/viz/NFLXEngagementAnalysis/DashV2
+
 The full Tableau workbook containing this dashboard and the PowerPoint presentation can be found in the repository.
 
 <img width="1947" alt="Dashboard Screenshot" src="https://github.com/gerson-a/Netflix-Engagement-Report-Analysis/assets/142946842/5b911f7a-f839-4e79-8c8a-b92e93ddba8a">
